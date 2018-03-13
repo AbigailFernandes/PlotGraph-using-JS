@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="grid.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script defer type="text/javascript" src="plotterWithRuler.js"></script>
+	</head>
+	<body onload="init()">
+		<p id="movelog">Move mouse over canvas</p>
+		<div id="wrapper">
+    		<canvas id="canvasBottom" width=1025 height=515></canvas>
+    		<canvas id="canvasTop" width=1000 height=500></canvas>
+		</div>
+		<div>
+			Grid Lines space:
+    		<select id="gridSpace" value="100" onchange="changeGridSpace()">
+        		<option value="30">30</option>
+        		<option value="50">50</option>
+        		<option value="100">100</option>
+    		</select>
+    		Function:
+    		<select id="function" value="0" onchange="plotFunction()">
+        		<option value="0">Sine</option>
+        		<option value="1">Cosine</option>
+    		</select>
+    	</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+body {
+    background-color: white;
+    padding:20px;
+}
+#wrapper {
+    position:relative;
+    width:1025px;
+    height:515px;
+}
+#canvasBottom {
+    position:absolute;
+    top:0px;
+    left:0px;
+    border:1px solid red;
+}
+#canvasTop {
+    position:absolute;
+    top:15px;
+    left:25px;
+    border:1px solid blue;
+}
