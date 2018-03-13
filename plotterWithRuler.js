@@ -1,3 +1,4 @@
+// Variable initialization
 var canvas = document.getElementById("canvasTop");
 var ctx = canvas.getContext("2d");
 var canvas2 = document.getElementById("canvasBottom");
@@ -8,12 +9,11 @@ var offsetY = canvasOffset.top;
 var functElement = document.getElementById("function");
 var gridElement = document.getElementById("gridSpace");
 
+// Function to display the position of the cursor
 function handleMouseMove(e) {
     mouseX = parseInt(e.clientX - offsetX);
     mouseY = 1 - (2*(e.clientY - offsetY)/canvas.height);
     $("#movelog").html("Coursor points: x = " + mouseX + " , y = " + mouseY.toFixed(3));
-
-    // Put your mousemove stuff here
 }
 
 $("#canvasTop").mousemove(function (e) {
@@ -22,28 +22,28 @@ $("#canvasTop").mousemove(function (e) {
 
 function init() {
     var gridSpace = gridElement.options[gridElement.selectedIndex].value;
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    ctx2.clearRect(0,0,canvas2.width,canvas2.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx2.clearRect(0,0,canvas2.width,canvas2.height);
     drawRulerGrid(gridSpace);
     
     ctx.beginPath();
-    drawSine(ctx,canvas.width,canvas.height,gridSpace)    
+    drawSine(ctx,canvas.width,canvas.height,gridSpace);  
     ctx.stroke();
 }
 
 function changeGridSpace() {   
     var gridSpace = gridElement.options[gridElement.selectedIndex].value;
     var funct = functElement.options[functElement.selectedIndex].value;
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    ctx2.clearRect(0,0,canvas2.width,canvas2.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx2.clearRect(0,0,canvas2.width,canvas2.height);
     drawRulerGrid(gridSpace);
     
     ctx.beginPath();
     if(funct==0) {
-        drawSine(ctx,canvas.width,canvas.height,gridSpace)    
+        drawSine(ctx,canvas.width,canvas.height,gridSpace);   
     }
     else{
-        drawCosine(ctx,canvas.width,canvas.height,gridSpace)   
+        drawCosine(ctx,canvas.width,canvas.height,gridSpace) ;  
     }
     ctx.stroke();
 }
@@ -51,16 +51,16 @@ function changeGridSpace() {
 function plotFunction() {
     var gridSpace = gridElement.options[gridElement.selectedIndex].value;
     var funct = functElement.options[functElement.selectedIndex].value;
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    ctx2.clearRect(0,0,canvas2.width,canvas2.height)
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx2.clearRect(0,0,canvas2.width,canvas2.height);
     drawRulerGrid(gridSpace, funct);
     
     ctx.beginPath();
     if(funct==0) {
-        drawSine(ctx,canvas.width,canvas.height,gridSpace)    
+        drawSine(ctx,canvas.width,canvas.height,gridSpace);   
     }
     else{
-        drawCosine(ctx,canvas.width,canvas.height,gridSpace)   
+        drawCosine(ctx,canvas.width,canvas.height,gridSpace);  
     }
     ctx.stroke();
 }
@@ -110,7 +110,6 @@ function drawSine(context, width, height, gridSpace) {
     context.fillStyle = '#fff';
     context.moveTo(0, 250);
     
-    // Loop to draw segments
     for (i = 0; i <= width; i += 10) {
         x = i*(Math.PI/(gridSpace*2));
         y = Math.sin(-x);
@@ -124,7 +123,6 @@ function drawCosine(context, width, height, gridSpace) {
     context.fillStyle = '#fff';
     context.moveTo(0, 250);
     
-    // Loop to draw segments
     for (i = 0; i <= width; i += 10) {
         x = i*(Math.PI/(gridSpace*2));
         y = -Math.cos(x);
